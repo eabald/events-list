@@ -1,0 +1,22 @@
+{
+  "name": "events-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eabald/events-list.git"
+  },
+  "author": "Maciej Krawczyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eabald/events-list/issues"
+  },
+  "homepage": "https://github.com/eabald/events-list#readme",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+}
