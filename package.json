@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start:dev": "concurrently -n \"backend,client\"  -c \"bgBlue.bold,bgMagenta.bold\" \"npm start\" \"cd src/public && npm start\"",
     "start": "CHOKIDAR_USEPOLLING=1 NODE_ENV=development nodemon",
     "build": "tsc",
     "test": "jest",
@@ -50,6 +51,7 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
+    "concurrently": "^6.3.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
