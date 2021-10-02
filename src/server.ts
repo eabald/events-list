@@ -18,3 +18,5 @@ const { PORT } = process.env;
 const app = new AppController(Number(PORT));
 
 app.listen();
+
+process.once('SIGTERM', () => process.exit());
