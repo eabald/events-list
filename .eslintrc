@@ -18,7 +18,7 @@
   "plugins": [
       "@typescript-eslint"
   ],
-  "ignorePatterns": ["src/public/**/*"],
+  "ignorePatterns": ["src/public"],
   "rules": {
   }
 }
