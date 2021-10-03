@@ -39,7 +39,7 @@ class EventsController implements Controller {
   private updateEvent = async (request: express.Request, response: express.Response, next: express.NextFunction) => {
     const updateData: UpdateEventDto = request.body;
     const updatedEvent = await this.eventsService.updateEvent(updateData);
-    if (!updateData) {
+    if (!updatedEvent) {
       next(new HttpException(404, 'Event not found'));
     } else {
       response.json(updatedEvent);

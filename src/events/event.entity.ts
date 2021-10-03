@@ -14,7 +14,7 @@ class Event {
   @Column({ name: 'email', length: 128 })
   email: string;
 
-  @Column({ name: 'event_date', type: 'datetime' })
+  @Column({ name: 'event_date', type: 'date' })
   date: Date;
 }
 

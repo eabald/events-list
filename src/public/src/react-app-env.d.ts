@@ -69,3 +69,16 @@ declare module '*.module.sass' {
   const classes: { readonly [key: string]: string };
   export default classes;
 }
+
+declare interface EventData {
+  id?: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  date: Date | '';
+}
+
+declare interface ApiError {
+  status: number;
+  message: string;
+}

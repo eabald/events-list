@@ -1,20 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import { Router as DomRouter } from 'react-router-dom';
+import history from './redux/history';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor } from './redux/store';
+import { ThemeProvider } from '@mui/material/styles';
+import MainTheme from './themes/main.theme';
+import Router from './router';
+import PageLoader from './components/page-loader/page-loader.component';
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/root-reducer';
 
-const App: React.FC<unknown> = () => {
+const App: React.FC = () => {
+  const loading = useSelector((state: RootState) => state.utils.loading);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PersistGate loading={<PageLoader />} persistor={persistor}>
+      <ThemeProvider theme={MainTheme}>
+        <Suspense fallback={<PageLoader />}>
+          <DomRouter history={history}>
+            {loading ? <PageLoader /> : ''}
+            <Router />
+          </DomRouter>
+        </Suspense>
+      </ThemeProvider>
+    </PersistGate>
   );
 };
 

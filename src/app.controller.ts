@@ -58,7 +58,7 @@ class AppController {
   private initializeStatic(): void {
     if (process.env.NODE_ENV === 'development') {
       this.app.get('*', (request: express.Request, response: express.Response) => {
-        response.redirect('http://localhost:3000');
+        response.redirect(`http://localhost:3000/${request.path}`);
       });
     } else {
       this.app.use(express.static(this.static));
