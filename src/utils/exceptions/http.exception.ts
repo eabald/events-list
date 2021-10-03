@@ -1,3 +1,9 @@
+/**
+ * Exception class for handling http errors in responses.
+ * @author Maciej Krawczyk
+ * @class HttpException
+ * @extends {Error}
+ */
 class HttpException extends Error {
   status: number;
 

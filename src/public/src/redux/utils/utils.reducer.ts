@@ -3,6 +3,11 @@ import { Reducer } from 'redux';
 // Types
 import { UtilsAction, UtilsState, UPDATE_LOADING, TOGGLE_SUCCESS } from './utils.types';
 
+/**
+ * Utils reducer
+ * @author Maciej Krawczyk
+ */
+
 const INITIAL_STATE: UtilsState = {
   loading: false,
   success: false,

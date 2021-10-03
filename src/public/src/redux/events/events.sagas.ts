@@ -22,6 +22,11 @@ import {
   UPDATE_EVENT_START,
 } from './events.types';
 
+/**
+ * Events sagas collection
+ * @author Maciej Krawczyk
+ */
+
 export function* getEvents(): Generator {
   try {
     yield put(updateLoading(true));

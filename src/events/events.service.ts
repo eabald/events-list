@@ -4,24 +4,50 @@ import DatabaseService from '../database/database.service';
 import CreateEventDto from './dto/createEvent.dto';
 import UpdateEventDto from './dto/updateEvent.dto';
 
+/**
+ * Service responsible for i/o operations for Events data.
+ * @author Maciej Krawczyk
+ * @class EventsService
+ */
 class EventsService {
   private eventsRepository: Repository<Event>;
 
+  /**
+   *Creates an instance of EventsService.
+   * @memberof EventsService
+   */
   constructor() {
     this.eventsRepository = DatabaseService.getRepository(Event);
   }
 
+  /**
+   * Retrieve all events from db.
+   * @returns {Promise<Event[]>}
+   * @memberof EventsService
+   */
   public async getEvents(): Promise<Event[]> {
     const events = await this.eventsRepository.find();
     return events;
   }
 
+  /**
+   * Create new event in db.
+   * @param {CreateEventDto} data
+   * @returns {Promise<Event>}
+   * @memberof EventsService
+   */
   public async createEvent(data: CreateEventDto): Promise<Event> {
     const newEvent = await this.eventsRepository.create(data);
     await this.eventsRepository.save(newEvent);
     return newEvent;
   }
 
+  /**
+   * Update event in db.
+   * @param {UpdateEventDto} data
+   * @returns {(Promise<Event | null>)}
+   * @memberof EventsService
+   */
   public async updateEvent(data: UpdateEventDto): Promise<Event | null> {
     await this.eventsRepository.update(data.id, data);
     const updatedEvent = await this.eventsRepository.findOne(data.id);
@@ -31,6 +57,12 @@ class EventsService {
     return null;
   }
 
+  /**
+   * Delete event in db.
+   * @param {number} id
+   * @returns {Promise<number>}
+   * @memberof EventsService
+   */
   public async deleteEvent(id: number): Promise<number> {
     await this.eventsRepository.delete(id);
     return id;

@@ -1,5 +1,10 @@
 import { IsString, IsNotEmpty, Length } from 'class-validator';
 
+/**
+ * DTO with all necessary fields to create new event.
+ * @author Maciej Krawczyk
+ * @class CreateEventDto
+ */
 class CreateEventDto {
   @IsString()
   @Length(2, 128)

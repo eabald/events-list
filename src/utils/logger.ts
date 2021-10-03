@@ -1,5 +1,9 @@
 import winston, { format, transports } from 'winston';
 
+/**
+ * Util wrapper for winston lib for logging in app.
+ * @author Maciej Krawczyk
+ */
 const logger = winston.createLogger({
   level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
   format: format.combine(

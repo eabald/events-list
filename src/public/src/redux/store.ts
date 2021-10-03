@@ -8,6 +8,10 @@ import rootReducer from './root-reducer';
 // Root Sagas
 import rootSaga from './root-saga';
 
+/**
+ * Application state management store
+ * @author Maciej Krawczyk
+ */
 const sagaMiddleware = createSagaMiddleware();
 
 const middlewares: Array<Middleware | SagaMiddleware> = [];

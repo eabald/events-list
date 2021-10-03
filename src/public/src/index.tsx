@@ -7,6 +7,11 @@ import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
+/**
+ * Application index
+ * @author Maciej Krawczyk
+ * @component
+ */
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

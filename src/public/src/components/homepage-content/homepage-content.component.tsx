@@ -7,6 +7,11 @@ import { RootState } from '../../redux/root-reducer';
 import { getEventsStart } from '../../redux/events/events.actions';
 import FlashOutput from '../flash-output/flash-output.component';
 
+/**
+ * Homepage main content wrapper
+ * @author Maciej Krawczyk
+ * @component
+ */
 const HomepageContent: React.FC = () => {
   const eventItems = useSelector((state: RootState) => state.events.events);
   const dispatch = useDispatch();

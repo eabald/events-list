@@ -6,6 +6,11 @@ import { Route, Switch } from 'react-router';
 const Home = lazy(() => import('./pages/home.component'));
 const NotFound = lazy(() => import('./pages/not-found.component'));
 
+/**
+ * Main application router component
+ * @author Maciej Krawczyk
+ * @component
+ */
 const Router: React.FC = () => {
   return (
     <Switch>

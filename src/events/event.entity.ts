@@ -1,5 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+/**
+ * Typeorm entity for db interaction with events table.
+ * @class Event
+ */
 @Entity('events')
 class Event {
   @PrimaryGeneratedColumn()

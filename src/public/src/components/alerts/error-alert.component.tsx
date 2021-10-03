@@ -7,6 +7,12 @@ interface ErrorAlertProps {
   message: string;
 }
 
+/**
+ * Error alert component
+ * @author Maciej Krawczyk
+ * @component
+ * @param message text content of alert
+ */
 const ErrorAlert: React.FC<ErrorAlertProps> = ({ message }) => {
   const dispatch = useDispatch();
   useEffect(() => {

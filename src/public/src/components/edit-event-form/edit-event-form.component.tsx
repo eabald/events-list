@@ -8,6 +8,13 @@ interface EditEventFormProps {
   clearHandler: () => void;
 }
 
+/**
+ * Logic wrapper for updating events, submitting and clearing form.
+ * @author Maciej Krawczyk
+ * @component
+ * @param eventData content of event to update
+ * @param clearHandler method resetting form state and visibility
+ */
 const EditEventForm: React.FC<EditEventFormProps> = ({ eventData, clearHandler }) => {
   const dispatch = useDispatch();
   const submitHandler = (values: EventData) => {

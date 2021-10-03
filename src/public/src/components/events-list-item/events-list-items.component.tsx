@@ -9,6 +9,12 @@ interface EventsListItemProps {
   data: EventData;
 }
 
+/**
+ * Event list item row
+ * @author Maciej Krawczyk
+ * @component
+ * @param data event content
+ */
 const EventsListItem: React.FC<EventsListItemProps> = ({ data }) => {
   const [editMode, setEditMode] = useState(false);
   const dispatch = useDispatch();

@@ -25,6 +25,14 @@ interface EventFormProps {
   clearHandler: () => void;
 }
 
+/**
+ * Event submission form with formik wrapper
+ * @author Maciej Krawczyk
+ * @component
+ * @param initialValues initial content of form
+ * @param submitHandler method submitting form
+ * @param clearHandler method resetting form state and visibility
+ */
 const EventForm: React.FC<EventFormProps> = ({ initialValues, submitHandler, clearHandler }) => {
   const formik = useFormik({
     validationSchema,

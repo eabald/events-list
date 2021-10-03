@@ -6,6 +6,10 @@ import utilsReducer from './utils/utils.reducer';
 import { RootAction } from './root-types';
 import eventsReducer from './events/events.reducer';
 
+/**
+ * Main reducer for application state management
+ * @author Maciej Krawczyk
+ */
 const persistConfig = {
   key: 'root',
   storage,

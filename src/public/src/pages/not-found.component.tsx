@@ -1,6 +1,11 @@
 import React from 'react';
 import { Box, Typography, Container, Link } from '@mui/material';
 
+/**
+ * 404 page component
+ * @author Maciej Krawczyk
+ * @component
+ */
 const NotFound: React.FC = () => {
   return (
     <Box

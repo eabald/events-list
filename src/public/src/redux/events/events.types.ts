@@ -1,5 +1,10 @@
 import { Action } from 'redux';
 
+/**
+ * Events redux types collection
+ * @author Maciej Krawczyk
+ */
+
 export interface EventsState {
   events: EventData[];
   error: string | null;

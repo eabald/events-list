@@ -10,6 +10,12 @@ import PageLoader from './components/page-loader/page-loader.component';
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/root-reducer';
 
+/**
+ * Application main component and router wrapper
+ * @author Maciej Krawczyk
+ * @component
+ * @param clearHandler method resetting form state and visibility
+ */
 const App: React.FC = () => {
   const loading = useSelector((state: RootState) => state.utils.loading);
   return (

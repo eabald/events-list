@@ -27,6 +27,11 @@ import {
   CLEAR_EVENTS_ERROR,
 } from './events.types';
 
+/**
+ * Events redux action collection
+ * @author Maciej Krawczyk
+ */
+
 export const getEventsStart = (): GetEventsStartAction => ({
   type: GET_EVENTS_START,
 });

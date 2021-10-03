@@ -3,6 +3,11 @@ import { AppBar, Toolbar, IconButton, Typography, Drawer, Container, Tooltip } f
 import { Add as AddIcon } from '@mui/icons-material';
 import AddEventForm from '../add-event-form/add-event-form.component';
 
+/**
+ * Homepage top bar with add event form drawer
+ * @author Maciej Krawczyk
+ * @component
+ */
 const TopBar: React.FC = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const toggleDrawer = () => {

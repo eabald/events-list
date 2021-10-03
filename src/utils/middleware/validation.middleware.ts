@@ -3,6 +3,12 @@ import { validate, ValidationError } from 'class-validator';
 import { RequestHandler } from 'express';
 import HttpException from '../exceptions/http.exception';
 
+/**
+ * RequestHandler transforming and validating json input based on supplied DTO.
+ * @author Maciej Krawczyk
+ * @param {*} type
+ * @returns {RequestHandler}
+ */
 function validationMiddleware(type: any): RequestHandler {
   return (req, res, next) => {
     const obj = plainToClass(type, req.body || {});

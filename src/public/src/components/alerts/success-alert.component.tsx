@@ -3,6 +3,11 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleSuccess } from '../../redux/utils/utils.actions';
 
+/**
+ * Success alert component
+ * @author Maciej Krawczyk
+ * @component
+ */
 const SuccessAlert: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {

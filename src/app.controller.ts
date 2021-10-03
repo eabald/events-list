@@ -2,12 +2,19 @@ import express from 'express';
 import { createServer, Server } from 'http';
 import path from 'path';
 import { Connection } from 'typeorm';
+import helmet from 'helmet';
 import DatabaseService from './database/database.service';
 import EventsController from './events/events.controller';
 import logger from './utils/logger';
 import errorMiddleware from './utils/middleware/error.middleware';
 import ErrorLogger from './utils/middleware/errorLogger.middleware';
 
+/**
+ * Application main controller and entrypoint
+ *
+ * @author Maciej Krawczyk
+ * @class AppController
+ */
 class AppController {
   public PORT: number;
 
@@ -19,6 +26,11 @@ class AppController {
 
   private static = path.join(__dirname, './public');
 
+  /**
+   * Creates an instance of AppController.
+   * @param {number} port
+   * @memberof AppController
+   */
   constructor(port: number) {
     this.PORT = port;
     this.app = express();
@@ -33,11 +45,22 @@ class AppController {
       .catch((err) => logger.error(err));
   }
 
+  /**
+   * Initialize database connection.
+   * @private
+   * @returns {Promise<void>}
+   * @memberof AppController
+   */
   private async initDb(): Promise<void> {
     const databaseService = new DatabaseService();
     this.connection = await databaseService.connectToDatabase();
   }
 
+  /**
+   * Initialize application modules
+   * @private
+   * @memberof AppController
+   */
   private initModules(): void {
     const controllers = [new EventsController()];
     controllers.forEach((controller) => {
@@ -45,16 +68,32 @@ class AppController {
     });
   }
 
+  /**
+   * Initialize external middleware.
+   * @private
+   * @memberof AppController
+   */
   private initMiddleware(): void {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(helmet());
   }
 
+  /**
+   * Initialize error handling middleware.
+   * @private
+   * @memberof AppController
+   */
   private initErrorMiddleware(): void {
     this.app.use(ErrorLogger);
     this.app.use(errorMiddleware);
   }
 
+  /**
+   * Initialize static content - client app.
+   * @private
+   * @memberof AppController
+   */
   private initializeStatic(): void {
     if (process.env.NODE_ENV === 'development') {
       this.app.get('*', (request: express.Request, response: express.Response) => {
@@ -68,6 +107,10 @@ class AppController {
     }
   }
 
+  /**
+   * Start http listening on {PORT}
+   * @memberof AppController
+   */
   public listen(): void {
     this.server.listen(this.PORT, () => logger.info(`App listening on the port ${this.PORT}`));
   }

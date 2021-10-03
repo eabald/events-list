@@ -13,6 +13,12 @@ import {
   CLEAR_EVENTS_ERROR,
 } from './events.types';
 
+
+/**
+ * Events reducer
+ * @author Maciej Krawczyk
+ */
+
 const INITIAL_STATE: EventsState = {
   events: [],
   error: null,

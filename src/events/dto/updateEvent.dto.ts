@@ -1,5 +1,10 @@
 import { IsString, Length, IsNotEmpty, IsNumber } from 'class-validator';
 
+/**
+ * DTO with all necessary fields to update event.
+ * @author Maciej Krawczyk
+ * @class UpdateEventDto
+ */
 class UpdateEventDto {
   @IsNumber()
   @IsNotEmpty()

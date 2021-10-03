@@ -1,6 +1,11 @@
 // External
 import { Action } from 'redux';
 
+/**
+ * Utils redux types collection
+ * @author Maciej Krawczyk
+ */
+
 export const UPDATE_LOADING = 'UPDATE_LOADING';
 
 export const TOGGLE_SUCCESS = 'TOGGLE_SUCCESS';
