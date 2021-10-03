@@ -1,11 +1,16 @@
+// External
 import express from 'express';
 import { createServer, Server } from 'http';
 import path from 'path';
 import { Connection } from 'typeorm';
 import helmet from 'helmet';
-import DatabaseService from './database/database.service';
+// Controllers
 import EventsController from './events/events.controller';
+// Service
+import DatabaseService from './database/database.service';
+// Utils
 import logger from './utils/logger';
+// Middleware
 import errorMiddleware from './utils/middleware/error.middleware';
 import ErrorLogger from './utils/middleware/errorLogger.middleware';
 

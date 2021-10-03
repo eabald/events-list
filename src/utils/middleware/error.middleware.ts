@@ -1,4 +1,6 @@
+// External
 import { NextFunction, Request, Response } from 'express';
+// Exceptions
 import HttpException from '../exceptions/http.exception';
 
 /**

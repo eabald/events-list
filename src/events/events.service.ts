@@ -1,6 +1,10 @@
+// External
 import { Repository } from 'typeorm';
+// Entities
 import Event from './event.entity';
+// Services
 import DatabaseService from '../database/database.service';
+// DTO
 import CreateEventDto from './dto/createEvent.dto';
 import UpdateEventDto from './dto/updateEvent.dto';
 
