@@ -1,8 +1,10 @@
+// External
 import React from 'react';
-import { Box, TextField, Grid, ButtonGroup, IconButton } from '@mui/material';
-import { Check as CheckIcon, Clear as ClearIcon } from '@mui/icons-material';
 import { FormikHelpers, useFormik } from 'formik';
 import * as yup from 'yup';
+// Components
+import { Box, TextField, Grid, ButtonGroup, IconButton } from '@mui/material';
+import { Check as CheckIcon, Clear as ClearIcon } from '@mui/icons-material';
 
 const validationSchema = yup.object({
   firstName: yup

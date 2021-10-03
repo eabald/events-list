@@ -1,7 +1,9 @@
+// External
 import React from 'react';
+// Components
 import TopBar from '../components/top-bar/top-bar.component';
-import { Box } from '@mui/material';
 import HomepageContent from '../components/homepage-content/homepage-content.component';
+import { Box } from '@mui/material';
 
 /**
  * Homepage component

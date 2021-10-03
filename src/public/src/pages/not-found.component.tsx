@@ -1,4 +1,6 @@
+// External
 import React from 'react';
+// Components
 import { Box, Typography, Container, Link } from '@mui/material';
 
 /**

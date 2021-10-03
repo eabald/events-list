@@ -1,4 +1,6 @@
+// External
 import { createBrowserHistory } from 'history';
+
 /**
  * Router history
  * @author Maciej Krawczyk

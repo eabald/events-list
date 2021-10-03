@@ -1,7 +1,10 @@
-import { Alert } from '@mui/material';
+// External
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+// Redux
 import { clearEventsError } from '../../redux/events/events.actions';
+// Components
+import { Alert } from '@mui/material';
 
 interface ErrorAlertProps {
   message: string;

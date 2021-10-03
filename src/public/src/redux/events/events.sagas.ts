@@ -1,4 +1,6 @@
+// External
 import { all, put, takeLatest, call } from 'redux-saga/effects';
+// Actions
 import { updateLoading } from '../utils/utils.actions';
 import {
   getEventsError,
@@ -10,7 +12,9 @@ import {
   updateEventSuccess,
   updateEventError,
 } from './events.actions';
+// Api
 import { createEventRequest, deleteEventRequest, getEventsRequest, updateEventRequest } from './events.api';
+// Types
 import {
   CreateEventStartAction,
   CREATE_EVENT_START,

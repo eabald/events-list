@@ -1,7 +1,10 @@
-import { Alert } from '@mui/material';
+// External
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+// Redux
 import { toggleSuccess } from '../../redux/utils/utils.actions';
+// Components
+import { Alert } from '@mui/material';
 
 /**
  * Success alert component

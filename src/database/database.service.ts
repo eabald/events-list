@@ -1,6 +1,9 @@
+// External
 import path from 'path';
 import { Connection, createConnection, Repository, getRepository, EntityTarget } from 'typeorm';
+// Entities
 import Event from '../events/event.entity';
+// Utils
 import logger from '../utils/logger';
 
 /**

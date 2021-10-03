@@ -1,4 +1,6 @@
+// External
 import { Reducer } from 'redux';
+// Types
 import {
   CREATE_EVENT_ERROR,
   CREATE_EVENT_SUCCESS,

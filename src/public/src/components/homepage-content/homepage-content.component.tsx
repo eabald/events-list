@@ -1,10 +1,13 @@
-import { Box, Container, Typography, Divider, List } from '@mui/material';
+// External
 import React, { useEffect } from 'react';
-import EventsListItem from '../events-list-item/events-list-items.component';
-import { Add as AddIcon } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
+// Redux
 import { RootState } from '../../redux/root-reducer';
 import { getEventsStart } from '../../redux/events/events.actions';
+// Components
+import { Box, Container, Typography, Divider, List } from '@mui/material';
+import EventsListItem from '../events-list-item/events-list-items.component';
+import { Add as AddIcon } from '@mui/icons-material';
 import FlashOutput from '../flash-output/flash-output.component';
 
 /**

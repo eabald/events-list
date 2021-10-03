@@ -1,5 +1,8 @@
-import { Container, LinearProgress } from '@mui/material';
+// External
 import React from 'react';
+// Components
+import { Container, LinearProgress } from '@mui/material';
+// Styled
 import { PageLoaderElement } from './page-loader.styles';
 
 /**

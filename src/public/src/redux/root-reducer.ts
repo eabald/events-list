@@ -2,8 +2,10 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import utilsReducer from './utils/utils.reducer';
+// Types
 import { RootAction } from './root-types';
+// Reducers
+import utilsReducer from './utils/utils.reducer';
 import eventsReducer from './events/events.reducer';
 
 /**

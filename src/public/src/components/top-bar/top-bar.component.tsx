@@ -1,4 +1,6 @@
+// External
 import React, { useState } from 'react';
+// Components
 import { AppBar, Toolbar, IconButton, Typography, Drawer, Container, Tooltip } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
 import AddEventForm from '../add-event-form/add-event-form.component';

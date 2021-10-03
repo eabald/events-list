@@ -1,9 +1,12 @@
+// External
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+// Redux
+import { deleteEventStart } from '../../redux/events/events.actions';
+// Components
 import { ListItem, Grid, ButtonGroup, IconButton, Typography } from '@mui/material';
 import { Create as CreateIcon, Delete as DeleteIcon } from '@mui/icons-material';
-import React, { useState } from 'react';
 import EditEventForm from '../edit-event-form/edit-event-form.component';
-import { useDispatch } from 'react-redux';
-import { deleteEventStart } from '../../redux/events/events.actions';
 
 interface EventsListItemProps {
   data: EventData;

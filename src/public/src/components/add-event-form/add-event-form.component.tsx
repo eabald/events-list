@@ -1,6 +1,9 @@
+// External
 import React from 'react';
 import { useDispatch } from 'react-redux';
+// Redux
 import { createEventStart } from '../../redux/events/events.actions';
+// Components
 import EventForm from '../event-form/event-form.component';
 
 interface AddEventFormProps {

@@ -1,3 +1,4 @@
+// Api
 import api from '../root-api';
 
 export async function getEventsRequest(): Promise<EventData[]> {

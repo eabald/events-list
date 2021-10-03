@@ -1,9 +1,15 @@
+// External
 import * as express from 'express';
+// Interfaces
 import Controller from '../utils/interfaces/controller.interface';
+// Services
 import EventsService from './events.service';
+// DTO
 import CreateEventDto from './dto/createEvent.dto';
 import UpdateEventDto from './dto/updateEvent.dto';
+// Middleware
 import validationMiddleware from '../utils/middleware/validation.middleware';
+// Exceptions
 import HttpException from '../utils/exceptions/http.exception';
 
 /**

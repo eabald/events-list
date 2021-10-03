@@ -1,7 +1,10 @@
+// External
 import React from 'react';
-import { Box } from '@mui/material';
-import { RootState } from '../../redux/root-reducer';
 import { useSelector } from 'react-redux';
+// Redux
+import { RootState } from '../../redux/root-reducer';
+// Components
+import { Box } from '@mui/material';
 import SuccessAlert from '../alerts/success-alert.component';
 import ErrorAlert from '../alerts/error-alert.component';
 
