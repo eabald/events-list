@@ -8,7 +8,8 @@
     "start:prod": "NODE_ENV=production node build/server",
     "start": "CHOKIDAR_USEPOLLING=1 NODE_ENV=development nodemon",
     "build": "tsc && cd src/public && npm run build",
-    "test": "jest --watch",
+    "test:be": "jest --watch",
+    "test:fe": "cd src/public && npm run test",
     "lint": "eslint **/*.ts"
   },
   "repository": {

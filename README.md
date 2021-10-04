@@ -108,5 +108,11 @@ http://localhost:5000
 In order to run backend tests in root of project run command:
 
 ```sh
-npm run test
+npm run test:be
+```
+
+Additionally to run frontend tests in root of project run command:
+
+```sh
+npm run test:fe
 ```
