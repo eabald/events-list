@@ -14,7 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": false
   },
   "lib": ["es2015"],
   "include": ["src/**/*"],

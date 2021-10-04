@@ -20,5 +20,6 @@
   ],
   "ignorePatterns": ["src/public"],
   "rules": {
+    "class-methods-use-this": "off"
   }
 }

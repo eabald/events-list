@@ -105,4 +105,8 @@ http://localhost:5000
 
 ## Tests
 
-TODO
+In order to run backend tests in root of project run command:
+
+```sh
+npm run test
+```

@@ -19,7 +19,7 @@ class EventsService {
    *Creates an instance of EventsService.
    * @memberof EventsService
    */
-  constructor(private databaseService: DatabaseService) {}
+  constructor(public databaseService: DatabaseService) {}
 
   /**
    * Retrieve all events from db.
