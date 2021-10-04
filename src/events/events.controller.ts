@@ -1,5 +1,6 @@
 // External
 import * as express from 'express';
+import { Service } from 'typedi';
 // Interfaces
 import Controller from '../utils/interfaces/controller.interface';
 // Services
@@ -17,20 +18,19 @@ import HttpException from '../utils/exceptions/http.exception';
  * @class EventsController
  * @implements {Controller}
  */
+@Service()
 class EventsController implements Controller {
   public path = '/events';
 
   public router = express.Router();
 
-  private eventsService: EventsService;
-
   /**
    *Creates an instance of EventsController.
    * @memberof EventsController
    */
-  constructor() {
+  constructor(private eventsService: EventsService) {
     this.initializeRoutes();
-    this.eventsService = new EventsService();
+    this.eventsService = eventsService;
   }
 
   /**

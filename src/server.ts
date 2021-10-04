@@ -1,15 +1,16 @@
 // external;
+import 'reflect-metadata';
 import * as dotenv from 'dotenv';
 import path from 'path';
+import { Container } from 'typedi';
 // controllers
 import AppController from './app.controller';
 
 dotenv.config({
   path: path.join(__dirname, '../.env'),
 });
-const { PORT } = process.env;
 
-const app = new AppController(Number(PORT));
+const app = Container.get(AppController);
 
 app.listen();
 

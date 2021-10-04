@@ -1,5 +1,5 @@
 // External
-import { Repository } from 'typeorm';
+import { Service } from 'typedi';
 // Entities
 import Event from './event.entity';
 // Services
@@ -13,16 +13,13 @@ import UpdateEventDto from './dto/updateEvent.dto';
  * @author Maciej Krawczyk
  * @class EventsService
  */
+@Service()
 class EventsService {
-  private eventsRepository: Repository<Event>;
-
   /**
    *Creates an instance of EventsService.
    * @memberof EventsService
    */
-  constructor() {
-    this.eventsRepository = DatabaseService.getRepository(Event);
-  }
+  constructor(private databaseService: DatabaseService) {}
 
   /**
    * Retrieve all events from db.
@@ -30,7 +27,7 @@ class EventsService {
    * @memberof EventsService
    */
   public async getEvents(): Promise<Event[]> {
-    const events = await this.eventsRepository.find();
+    const events = await this.databaseService.getEventsRepository().find();
     return events;
   }
 
@@ -41,8 +38,8 @@ class EventsService {
    * @memberof EventsService
    */
   public async createEvent(data: CreateEventDto): Promise<Event> {
-    const newEvent = await this.eventsRepository.create(data);
-    await this.eventsRepository.save(newEvent);
+    const newEvent = await this.databaseService.getEventsRepository().create(data);
+    await this.databaseService.getEventsRepository().save(newEvent);
     return newEvent;
   }
 
@@ -53,8 +50,8 @@ class EventsService {
    * @memberof EventsService
    */
   public async updateEvent(data: UpdateEventDto): Promise<Event | null> {
-    await this.eventsRepository.update(data.id, data);
-    const updatedEvent = await this.eventsRepository.findOne(data.id);
+    await this.databaseService.getEventsRepository().update(data.id, data);
+    const updatedEvent = await this.databaseService.getEventsRepository().findOne(data.id);
     if (updatedEvent) {
       return updatedEvent;
     }
@@ -68,7 +65,7 @@ class EventsService {
    * @memberof EventsService
    */
   public async deleteEvent(id: number): Promise<number> {
-    await this.eventsRepository.delete(id);
+    await this.databaseService.getEventsRepository().delete(id);
     return id;
   }
 }

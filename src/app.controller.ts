@@ -2,17 +2,18 @@
 import express from 'express';
 import { createServer, Server } from 'http';
 import path from 'path';
-import { Connection } from 'typeorm';
+import { Connection, createConnection } from 'typeorm';
 import helmet from 'helmet';
+import { Service } from 'typedi';
 // Controllers
 import EventsController from './events/events.controller';
-// Service
-import DatabaseService from './database/database.service';
 // Utils
 import logger from './utils/logger';
 // Middleware
 import errorMiddleware from './utils/middleware/error.middleware';
 import ErrorLogger from './utils/middleware/errorLogger.middleware';
+// Entities
+import Event from './events/event.entity';
 
 /**
  * Application main controller and entrypoint
@@ -20,8 +21,11 @@ import ErrorLogger from './utils/middleware/errorLogger.middleware';
  * @author Maciej Krawczyk
  * @class AppController
  */
+@Service()
 class AppController {
   public PORT: number;
+
+  private databasePath = path.join(__dirname, '../../db.sqlite');
 
   public app: express.Application;
 
@@ -36,8 +40,8 @@ class AppController {
    * @param {number} port
    * @memberof AppController
    */
-  constructor(port: number) {
-    this.PORT = port;
+  constructor(private eventsController: EventsController) {
+    this.PORT = Number(process.env.PORT);
     this.app = express();
     this.server = createServer(this.app);
     this.initDb()
@@ -57,8 +61,16 @@ class AppController {
    * @memberof AppController
    */
   private async initDb(): Promise<void> {
-    const databaseService = new DatabaseService();
-    this.connection = await databaseService.connectToDatabase();
+    const connection = await createConnection({
+      type: 'sqlite',
+      database: this.databasePath,
+      logging: process.env.NODE_ENV === 'development',
+      synchronize: process.env.NODE_ENV === 'development',
+      entities: [Event],
+    });
+    logger.info(
+      `Database connection success. Connection name: '${connection.name}' Database: '${connection.options.database}'`
+    );
   }
 
   /**
@@ -67,7 +79,7 @@ class AppController {
    * @memberof AppController
    */
   private initModules(): void {
-    const controllers = [new EventsController()];
+    const controllers = [this.eventsController];
     controllers.forEach((controller) => {
       this.app.use('/api', controller.router);
     });
