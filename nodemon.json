@@ -1,6 +1,6 @@
 {
   "watch": ["src"],
   "ext": ".ts",
-  "ignore": ["scr/public/***.(ts|tsx)"],
+  "ignore": ["scr/public/**/*.(ts|tsx)"],
   "exec": "npm run lint && ts-node ./src/server.ts"
 }
